@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Marble Random Generator (With Replacement)</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 40px;
+      background-color: #f4f4f4;
+    }
+    h1 {
+      margin-bottom: 10px;
+    }
+    .jar {
+      font-size: 18px;
+      margin-bottom: 20px;
+    }
+    .result {
+      font-size: 28px;
+      margin: 20px;
+      font-weight: bold;
+    }
+    button {
+      padding: 12px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      border: none;
+      border-radius: 6px;
+      background-color: #333;
+      color: white;
+    }
+    button:hover {
+      background-color: #555;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🎲 Marble Drawer (With Replacement)</h1>
+
+  <div class="jar">
+    Jar Contents:<br>
+    🔴 9 Red | 🔵 9 Blue | 🟢 6 Green | 🟡 1 Yellow
+  </div>
+
+  <button onclick="drawMarble()">Draw a Marble</button>
+
+  <div class="result" id="result">Click to draw!</div>
+
+  <script>
+    function drawMarble() {
+      // Total marbles = 25
+      let rand = Math.random();
+
+      let selected;
+
+      if (rand < 9/25) {
+        selected = "Red";
+      } else if (rand < 18/25) {
+        selected = "Blue";
+      } else if (rand < 24/25) {
+        selected = "Green";
+      } else {
+        selected = "Yellow";
+      }
+
+      document.getElementById("result").innerText = "You drew: " + selected;
+
+      // Change text color
+      let colors = {
+        Red: "red",
+        Blue: "blue",
+        Green: "green",
+        Yellow: "gold"
+      };
+
+      document.getElementById("result").style.color = colors[selected];
+    }
+  </script>
+
+</body>
+</html>
